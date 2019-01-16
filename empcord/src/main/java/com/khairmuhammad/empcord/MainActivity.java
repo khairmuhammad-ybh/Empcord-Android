@@ -2,6 +2,7 @@ package com.khairmuhammad.empcord;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.khairmuhammad.statistics.Statistics;
@@ -36,5 +37,7 @@ public class MainActivity extends AppCompatActivity {
         tvTest.setText(Statistics.MESSAGE + " to Empcord mainActivity");
         TextView tvTest2 = findViewById(R.id.tvTest2);
         tvTest2.setText(Transitions.MESSAGE + " to Empcord mainActivity");
+
+        Log.d("Github", "Test commit");
     }
 }
