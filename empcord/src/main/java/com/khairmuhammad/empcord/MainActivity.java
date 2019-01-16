@@ -38,6 +38,6 @@ public class MainActivity extends AppCompatActivity {
         TextView tvTest2 = findViewById(R.id.tvTest2);
         tvTest2.setText(Transitions.MESSAGE + " to Empcord mainActivity");
 
-//        Log.d("Github", "Test commit");hsfhdf
+//        Log.d("Github", "Test commit");hsfhdfghjk
     }
 }
