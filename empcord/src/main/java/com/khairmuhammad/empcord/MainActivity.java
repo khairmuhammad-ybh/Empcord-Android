@@ -1,12 +1,10 @@
 package com.khairmuhammad.empcord;
 
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.TextView;
 
-import com.khairmuhammad.statistics.Statistics;
-import com.khairmuhammad.transitions.Transitions;
+import com.khairmuhammad.empcord.fragments.Login;
 
 /**
  * A base application that handle all GUI contents, transition between activities/fragment.
@@ -29,14 +27,21 @@ import com.khairmuhammad.transitions.Transitions;
 
 public class MainActivity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        TextView tvTest = findViewById(R.id.tvTest);
-        tvTest.setText(Statistics.MESSAGE + " to Empcord mainActivity");
-        TextView tvTest2 = findViewById(R.id.tvTest2);
-        tvTest2.setText(Transitions.MESSAGE + " to Empcord mainActivity");
+
+        //transact to login fragment
+        Login loginFragment = new Login();
+
+        FragmentManager manager = getSupportFragmentManager();
+        manager.beginTransaction().replace(
+                R.id.fragment_container,
+                loginFragment,
+                loginFragment.getTag())
+                .commit();
 
     }
 }

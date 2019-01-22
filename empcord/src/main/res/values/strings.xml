@@ -1,3 +1,48 @@
 <resources>
     <string name="app_name">EmpCord</string>
+
+    <!-- login fragment -->
+    <string name="login_et_username">Username</string>
+    <string name="login_et_password">Password</string>
+    <string name="login_btn_login">Login</string>
+    <string name="link_register">No Account? Register here</string>
+
+    <!-- register fragment -->
+    <string name="register_et_name">Name</string>
+    <string name="register_et_email">Email</string>
+    <string name="register_et_password">password</string>
+    <string name="register_et_confirm_password">Password</string>
+    <string name="register_btn_register">Register</string>
+    <string name="link_login">Already registered? Login here</string>
+
+    <!-- workerTabbed Activity -->
+    <string name="fragment_worker_qrcode">QR Code Scanner</string>
+    <string name="fragment_worker_nfc">NFC Reader</string>
+    <string name="fragment_worker_agenda">My Schedule</string>
+
+    <string name="fragment_worker_lbl_qrode">QR CODE</string>
+    <string name="fragment_worker_lbl_nfc">NFC</string>
+    <string name="fragment_worker_lbl_agenda">AGENDA</string>
+
+    <!-- officerTabbed Activity -->
+    <string name="fragment_officer_accounts">Account Management</string>
+    <string name="fragment_officer_workers">Manage Workers</string>
+    <string name="fragment_officer_reports">Reports</string>
+
+    <string name="fragment_officer_lbl_accounts">ACCOUNTS</string>
+    <string name="fragment_officer_lbl_workers">WORKERS</string>
+    <string name="fragment_officer_lbl_reports">REPORTS</string>
+
+    <!-- officer (account management) fragment -->
+    <string name="officer_accounts_header">Account Management</string>
+    <string name="officer_btn_creation">Creation</string>
+    <string name="officer_btn_update">Update</string>
+    <string name="officer_btn_reset">Reset</string>
+    <string name="officer_btn_remove">Remove</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="officer_account_mgmt_creation">Creation fragment</string>
+    <string name="officer_account_mgmt_update">Update fragment</string>
+    <string name="officer_account_mgmt_reset">Reset fragment</string>
+    <string name="officer_account_mgmt_remove">Remove fragment</string>
 </resources>
