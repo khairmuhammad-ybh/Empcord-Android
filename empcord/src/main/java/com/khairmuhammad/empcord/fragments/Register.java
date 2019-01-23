@@ -69,7 +69,7 @@ public class Register extends Fragment implements View.OnClickListener {
                 Log.d(Tags.TAG_TRANSITION, "(Register - fragment) register button has been pressed");
 
                 /**
-                 * Call transition module to do user registration and return an use object.
+                 * Call transition module to do user registration and return a user object.
                  * Once successfully authenticate, direct user to respective user dashboard
                  * (officer / worker)
                  */

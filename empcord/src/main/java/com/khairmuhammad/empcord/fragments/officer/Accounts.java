@@ -49,6 +49,7 @@ public class Accounts extends Fragment implements View.OnClickListener {
 
         Bundle bundle = new Bundle();
 
+        bundle.putString("TYPE", "Account");
         bundle.putString("SELECTED", ((Button)v).getText().toString());
         Intent intent = new Intent(getContext(), BlankCanvas.class);
         intent.putExtras(bundle);

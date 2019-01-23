@@ -1,14 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.officer.account.management.Creation">
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:gravity="center">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ImageView
+        android:id="@+id/img_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:src="@drawable/logo_transparent"
+        android:layout_marginBottom="25dp"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"/>
+
+    <EditText
+        android:id="@+id/register_worker_et_name"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/officer_account_mgmt_creation" />
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:hint="@string/register_worker_et_name"
+        android:inputType="text"/>
 
-</FrameLayout>
+    <EditText
+        android:id="@+id/register_worker_et_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:hint="@string/register_worker_et_email"
+        android:inputType="textEmailAddress"/>
+
+    <EditText
+        android:id="@+id/register_worker_et_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:hint="@string/register_worker_et_password"
+        android:inputType="textPassword"/>
+
+    <EditText
+        android:id="@+id/register_worker_et_confirm_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:hint="@string/register_worker_et_confirm_password"
+        android:inputType="textPassword"/>
+
+
+
+    <Button
+        android:id="@+id/register_worker_btn_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/register_btn_register"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingStart="50dp"
+        android:paddingEnd="50dp"
+        android:layout_marginBottom="10dp"/>
+
+</LinearLayout>

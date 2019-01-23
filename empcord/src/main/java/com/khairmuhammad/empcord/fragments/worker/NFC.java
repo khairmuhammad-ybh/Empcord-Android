@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.khairmuhammad.empcord.R;
 
@@ -14,6 +15,8 @@ import com.khairmuhammad.empcord.R;
  */
 public class NFC extends Fragment {
 
+    //Global variables
+    TextView nfc_tv_tag_location, nfc_tv_tag_status, nfc_tv_tag_message;
 
     public NFC() {
         // Required empty public constructor
@@ -25,6 +28,10 @@ public class NFC extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_nfc, container, false);
+
+        nfc_tv_tag_location = rootView.findViewById(R.id.nfc_tv_tag_location);
+        nfc_tv_tag_status = rootView.findViewById(R.id.nfc_tv_tag_status);
+        nfc_tv_tag_message = rootView.findViewById(R.id.nfc_tv_tag_message);
 
         /**
          * Require to implement NFC technology in here and invoke

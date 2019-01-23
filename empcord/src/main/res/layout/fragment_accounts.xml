@@ -12,13 +12,15 @@
         android:layout_height="wrap_content"
         android:text="@string/officer_accounts_header"
         android:textStyle="bold"
-        android:textSize="30sp"/>
+        android:textSize="30sp"
+        android:paddingTop="20dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"/>
 
     <LinearLayout
         android:id="@+id/officer_account_context_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/officer_accounts_header"
         android:layout_centerInParent="true"
         android:gravity="center"
         android:orientation="vertical">

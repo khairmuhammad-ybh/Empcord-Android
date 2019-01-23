@@ -1,14 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.officer.Workers">
+    tools:context=".fragments.officer.Accounts"
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/officer_worker_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/officer_worker_header"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:paddingTop="20dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"/>
+
+    <LinearLayout
+        android:id="@+id/officer_account_context_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/fragment_officer_workers" />
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical">
 
-</FrameLayout>
+        <LinearLayout
+            android:id="@+id/officer_account_context_col_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/officer_btn_location"
+                android:layout_width="300dp"
+                android:layout_height="140dp"
+                android:text="@string/officer_btn_location"
+                android:padding="30dp"/>
+
+            <Button
+                android:id="@+id/officer_btn_reminder"
+                android:layout_width="300dp"
+                android:layout_height="140dp"
+                android:text="@string/officer_btn_reminder"/>
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+</RelativeLayout>

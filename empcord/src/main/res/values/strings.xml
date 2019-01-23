@@ -40,9 +40,88 @@
     <string name="officer_btn_reset">Reset</string>
     <string name="officer_btn_remove">Remove</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
+    <!-- officer (account management functions) fragment -->
     <string name="officer_account_mgmt_creation">Creation fragment</string>
     <string name="officer_account_mgmt_update">Update fragment</string>
     <string name="officer_account_mgmt_reset">Reset fragment</string>
     <string name="officer_account_mgmt_remove">Remove fragment</string>
+
+    <!-- officer (worker management) fragment -->
+    <string name="officer_worker_header">Manage Workers</string>
+    <string name="officer_btn_location">Location</string>
+    <string name="officer_btn_reminder">Reminder</string>
+
+    <!-- officer (worker management functions) fragment -->
+    <string name="officer_workers_mgmt_location">Location fragment</string>
+    <string name="officer_workers_mgmt_reminder">Reminder fragment</string>
+
+    <!-- officer (report management) fragment -->
+    <string name="officer_report_header">Manage Report</string>
+    <string name="officer_btn_worker">Worker\'s Report</string>
+    <string name="officer_btn_monthly">Monthly Report</string>
+
+    <!-- officer (worker management functions) fragment -->
+    <string name="officer_report_mgmt_worker">Worker\'s Report fragment</string>
+    <string name="officer_report_mgmt_monthly">Monthly Report fragment</string>
+
+    <!-- Creation fragment -->
+    <string name="register_worker_et_name">Worker\'s Name</string>
+    <string name="register_worker_et_email">Worker\'s Email</string>
+    <string name="register_worker_et_password">Worker\'s Password</string>
+    <string name="register_worker_et_confirm_password">Worker\'s Confirm Password</string>
+
+    <!-- Update fragment-->
+    <string name="update_worker_lbl_name">Name: </string>
+    <string name="update_worker_et_email">Worker\'s Email</string>
+    <string name="update_worker_lbl_zone">Zone: </string>
+    <string name="update_worker_tv_zone_number">###</string>
+    <string name="update_worker_lbl_officer">Officer In-Charge: </string>
+    <string name="update_worker_tv_officer_name">Officer Name</string>
+    <string name="update_worker_btn_update">Update</string>
+
+    <!-- Reset fragment-->
+    <string name="reset_worker_lbl_name">Name: </string>
+    <string name="reset_worker_lbl_email">Email: </string>
+    <string name="reset_worker_tv_email">email@email.com</string>
+    <string name="reset_worker_lbl_zone">Zone: </string>
+    <string name="reset_worker_tv_zone_number">###</string>
+    <string name="reset_worker_lbl_officer">Officer In-Charge: </string>
+    <string name="reset_worker_tv_officer_name">Officer Name</string>
+    <string name="reset_worker_btn_unbind">Unbind</string>
+    <string name="reset_worker_btn_password_reset">Password Reset</string>
+
+    <!-- Remove fragment-->
+    <string name="remove_worker_lbl_name">Name: </string>
+    <string name="remove_worker_lbl_email">Email: </string>
+    <string name="remove_worker_tv_email">email@email.com</string>
+    <string name="remove_worker_lbl_zone">Zone: </string>
+    <string name="remove_worker_tv_zone_number">###</string>
+    <string name="remove_worker_lbl_officer">Officer In-Charge: </string>
+    <string name="remove_worker_tv_officer_name">Officer Name</string>
+    <string name="remove_worker_btn_remove">Remove</string>
+
+    <!-- Reminder fragment-->
+    <string name="reminder_worker_lbl_name">Name: </string>
+    <string name="reminder_worker_et_reminder">Reminder &#x2026;</string>
+    <string name="reminder_worker_lbl_urgent">Urgency: </string>
+    <string name="reminder_worker_btn_reminder">Send Reminder</string>
+
+    <!-- Location fragment-->
+    <string name="location_worker_lbl_name">Name: </string>
+    <string name="location_worker_lbl_address">Location Address: </string>
+    <string name="location_worker_tv_address">Address</string>
+
+    <!-- Worker fragment-->
+    <string name="report_worker_lbl_name">Name: </string>
+    <string name="report_worker_btn_report">Generate Report</string>
+
+    <!-- Monthly fragment-->
+    <string name="report_monthly_lbl_name">Name: </string>
+    <string name="report_monthly_btn_report">Generate Report</string>
+
+    <!-- NFC fragment -->
+    <string name="nfc_lbl_tag_location">TAG Location: </string>
+    <string name="nfc_tv_tag_location">location scanned</string>
+    <string name="nfc_tv_tag_status">\"Success\"</string>
+    <string name="nfc_tv_tag_message">\"Attendance Recorded\"</string>
 </resources>
