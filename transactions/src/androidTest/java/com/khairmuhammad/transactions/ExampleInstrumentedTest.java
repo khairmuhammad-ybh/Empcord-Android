@@ -1,4 +1,4 @@
-package com.khairmuhammad.transitions;
+package com.khairmuhammad.transactions;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

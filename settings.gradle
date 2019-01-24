@@ -1,1 +1,1 @@
-include ':empcord', ':statistics', ':dataservices', ':transitions'
+include ':empcord', ':statistics', ':dataservices', ':transactions', ':mylibrary'

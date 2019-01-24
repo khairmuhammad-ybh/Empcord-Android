@@ -1,4 +1,4 @@
-package com.khairmuhammad.transitions;
+package com.khairmuhammad.transactions;
 
 import org.junit.Test;
 

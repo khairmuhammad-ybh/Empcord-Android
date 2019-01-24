@@ -76,8 +76,8 @@ public class Login extends Fragment implements View.OnClickListener {
                 /**
                  * Call transition module to do user authentication and return an use object.
                  * Once successfully authenticate, direct user to respective user dashboard
-                    * (officer / worker)
-                    */
+                 * (officer / worker)
+                 */
 
                 startActivity(new Intent(getContext(), WorkerTabbedActivity.class));
 //                startActivity(new Intent(getContext(), OfficerTabbedActivity.class));
