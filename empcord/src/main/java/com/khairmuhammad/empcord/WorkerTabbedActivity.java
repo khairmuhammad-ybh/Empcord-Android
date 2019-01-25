@@ -1,5 +1,6 @@
 package com.khairmuhammad.empcord;
 
+import android.content.Context;
 import android.content.Intent;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
@@ -17,7 +18,9 @@ import android.widget.Toast;
 
 import com.khairmuhammad.empcord.fragments.worker.Agenda;
 import com.khairmuhammad.empcord.fragments.worker.NFC;
+import com.khairmuhammad.empcord.fragments.worker.NFCInterface;
 import com.khairmuhammad.empcord.fragments.worker.QRCode;
+import com.khairmuhammad.transactions.Transactions;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
@@ -32,11 +35,20 @@ import android.nfc.Tag;
 import android.nfc.tech.Ndef;
 import android.util.Log;
 
+
 public class WorkerTabbedActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
     private TabLayout tabLayout;
     private ViewPager viewPager;
+
+    //Interface listener
+    private NFCInterface nfcListener;
+
+    //Fragments
+    QRCode QRFrag;
+    NFC nfcFrag;
+    Agenda agendaFrag;
 
     //NFC
     public static final String MIME_TEXT_PLAIN = "text/plain";
@@ -53,6 +65,13 @@ public class WorkerTabbedActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        //Fragment init
+        QRFrag = new QRCode();
+        nfcFrag = new NFC();
+        agendaFrag = new Agenda();
+
+        setListner(nfcFrag);
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);
@@ -72,9 +91,11 @@ public class WorkerTabbedActivity extends AppCompatActivity {
         }
 
         if (!mNfcAdapter.isEnabled()) {
-            Toast.makeText(this, "NFC is disabled.", Toast.LENGTH_LONG).show();
+//            Toast.makeText(this, "NFC is disabled.", Toast.LENGTH_LONG).show();
+            Transactions.statusNFC(getApplicationContext(), "Disable");
         } else {
-            Toast.makeText(this, "NFC is enable.", Toast.LENGTH_LONG).show();
+//            Toast.makeText(this, "NFC is enable.", Toast.LENGTH_LONG).show();
+            Transactions.statusNFC(getApplicationContext(), "Enable");
         }
 
         handleIntent(getIntent());
@@ -240,22 +261,48 @@ public class WorkerTabbedActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
             if (result != null) {
-                Toast.makeText(getApplication(),"Read content: " + result, Toast.LENGTH_LONG).show();
+//                Toast.makeText(getApplication(),"Read content: " + result, Toast.LENGTH_LONG).show();
 //                mTextView.setText("Read content: " + result);
 
                 /**
                  * Invoke methods in transition module to store sharedPreference to be use in NFC fragment
                  */
+                boolean nfcTransaction = Transactions.insertNfc(getApplicationContext(), result);
+
+                if(nfcTransaction){
+                    TabLayout.Tab tab = tabLayout.getTabAt(1);
+                    tab.select();
+                }else{
+                    Toast.makeText(getApplication(),"NFc Transaction failed", Toast.LENGTH_LONG).show();
+                }
+
+//                Bundle bundle = new Bundle();
+//
+//                bundle.putString("NFC_RESULT", result);
+//
+//                NFC rSum = new NFC(); getSupportFragmentManager().beginTransaction().remove(rSum).commit();
+//
+//                TabLayout.Tab tab = tabLayout.getTabAt(1);
+//                tab.select();
+
+                nfcListener.setDisplay(result);
+
             }
         }
     }
 
+    public void setListner(NFCInterface listener){
+        this.nfcListener = listener;
+    }
+
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new QRCode(), getString(R.string.fragment_worker_lbl_qrode));
-        adapter.addFragment(new NFC(), getString(R.string.fragment_worker_lbl_nfc));
-        adapter.addFragment(new Agenda(), getString(R.string.fragment_worker_lbl_agenda));
+
+        adapter.addFragment(QRFrag, getString(R.string.fragment_worker_lbl_qrode));
+        adapter.addFragment(nfcFrag, getString(R.string.fragment_worker_lbl_nfc));
+        adapter.addFragment(agendaFrag, getString(R.string.fragment_worker_lbl_agenda));
         viewPager.setAdapter(adapter);
+
     }
 
     class ViewPagerAdapter extends FragmentPagerAdapter {

@@ -122,6 +122,6 @@
     <!-- NFC fragment -->
     <string name="nfc_lbl_tag_location">TAG Location: </string>
     <string name="nfc_tv_tag_location">location scanned</string>
-    <string name="nfc_tv_tag_status">\"Success\"</string>
+    <string name="nfc_tv_tag_status">\"Status\"</string>
     <string name="nfc_tv_tag_message">\"Attendance Recorded\"</string>
 </resources>
