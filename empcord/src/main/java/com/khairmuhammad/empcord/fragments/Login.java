@@ -12,11 +12,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.khairmuhammad.empcord.OfficerTabbedActivity;
 import com.khairmuhammad.empcord.R;
 import com.khairmuhammad.empcord.WorkerTabbedActivity;
 import com.khairmuhammad.empcord.configurations.Tags;
+import com.khairmuhammad.transactions.AuthTransactions;
+import com.khairmuhammad.transactions.models.UserModel;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,7 +30,7 @@ public class Login extends Fragment implements View.OnClickListener {
     TextView link_register;
 
     //User login credential variables
-    EditText login_et_username, login_et_password;
+    EditText login_et_email, login_et_password;
     Button login_btn_login;
 
     public Login() {
@@ -42,7 +45,7 @@ public class Login extends Fragment implements View.OnClickListener {
 
         //Assignments
         link_register = rootView.findViewById(R.id.link_register);
-        login_et_username = rootView.findViewById(R.id.login_et_username);
+        login_et_email = rootView.findViewById(R.id.login_et_email);
         login_et_password = rootView.findViewById(R.id.login_et_password);
         login_btn_login = rootView.findViewById(R.id.login_btn_login);
 
@@ -78,9 +81,29 @@ public class Login extends Fragment implements View.OnClickListener {
                  * Once successfully authenticate, direct user to respective user dashboard
                  * (officer / worker)
                  */
+                String email = login_et_email.getText().toString().trim();
+                String password = login_et_password.getText().toString().trim();
+
+                UserModel loginUser = new UserModel();
+                loginUser.setEmail(email);
+                loginUser.setPassword(password);
+
+                UserModel authUser = AuthTransactions.authenticateUser(getContext(), loginUser);
+                Log.d(Tags.TAG_TRANSITION, "(Login - fragment) " + authUser);
+                if(authUser != null){
+                    if(authUser.getType().equals("Officer")){
+                        startActivity(new Intent(getContext(), OfficerTabbedActivity.class));
+                    }else if(authUser.getType().equals("Worker")){
+                        startActivity(new Intent(getContext(), WorkerTabbedActivity.class));
+                    }
+                }else{
+                    Log.d(Tags.TAG_TRANSITION, "(Login - fragment) No user returned");
+                    Toast.makeText(getContext(), "Login failed", Toast.LENGTH_LONG).show();
+                }
+
 
 //                startActivity(new Intent(getContext(), WorkerTabbedActivity.class));
-                startActivity(new Intent(getContext(), OfficerTabbedActivity.class));
+//                startActivity(new Intent(getContext(), OfficerTabbedActivity.class));
                 getActivity().finish();
                 break;
         }

@@ -10,9 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.khairmuhammad.empcord.R;
 import com.khairmuhammad.empcord.configurations.Tags;
+import com.khairmuhammad.transactions.AuthTransactions;
+import com.khairmuhammad.transactions.models.UserModel;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -73,8 +76,36 @@ public class Register extends Fragment implements View.OnClickListener {
                  * Once successfully authenticate, direct user to respective user dashboard
                  * (officer / worker)
                  */
+                String name = register_et_name.getText().toString().trim();
+                String email = register_et_email.getText().toString().trim();
+                String password = register_et_password.getText().toString().trim();
+                String cPassword = register_et_confirm_password.getText().toString().trim();
+
+                UserModel newUser = new UserModel();
+                newUser.setName(name);
+                newUser.setEmail(email);
+                newUser.setPassword(password);
+                newUser.setConfirmPassword(cPassword);
+
+                if(comparePassword(newUser)){
+                    if(AuthTransactions.createUser(getContext(), newUser)){
+                        Toast.makeText(getContext(), "User registered", Toast.LENGTH_LONG).show();
+                        manager.popBackStack();
+                    }else{
+                        Toast.makeText(getContext(), "User already registered", Toast.LENGTH_LONG).show();
+                    }
+                }
 
                 break;
         }
+    }
+
+    private boolean comparePassword(UserModel newUser){
+
+        if(newUser.getPassword().equals(newUser.getConfirmPassword())){
+            return true;
+        }
+
+        return false;
     }
 }

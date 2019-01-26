@@ -2,25 +2,25 @@ package com.khairmuhammad.transactions.models;
 
 public class UserModel {
 
-    private long _id;                   //all users
+    private String _id;                   //all users
     private String name;                //all users
     private String email;               //all users
     private String password;            //all users
     private String type;                //all users
-    private long companyId;             //workers
+    private String companyId;             //workers
     private String companyName;         //workers
-    private long officerId;             //workers
+    private String officerId;             //workers
     private String officerName;         //workers
     private int zone;                   //all users
-    private long workers[];             //officer
+    private String workers[];             //officer
     private String confirmPassword;     //worker register
     private String hashPassword;        //all users
 
-    public long get_id() {
+    public String get_id() {
         return _id;
     }
 
-    public void set_id(long _id) {
+    public void set_id(String _id) {
         this._id = _id;
     }
 
@@ -56,27 +56,27 @@ public class UserModel {
         this.type = type;
     }
 
-    public long getCompanyId() {
+    public String getCompanyId() {
         return companyId;
     }
 
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(String companyId) {
         this.companyId = companyId;
     }
 
-    public long getOfficerId() {
+    public String getOfficerId() {
         return officerId;
     }
 
-    public void setOfficerId(long officerId) {
+    public void setOfficerId(String officerId) {
         this.officerId = officerId;
     }
 
-    public long[] getWorkers() {
+    public String[] getWorkers() {
         return workers;
     }
 
-    public void setWorkers(long[] workers) {
+    public void setWorkers(String[] workers) {
         this.workers = workers;
     }
 

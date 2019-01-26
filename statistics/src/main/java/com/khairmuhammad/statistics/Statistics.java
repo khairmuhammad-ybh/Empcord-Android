@@ -10,5 +10,5 @@ import com.khairmuhammad.dataservices.DataServices;
  */
 
 public class Statistics {
-    public static String MESSAGE = "Statistics Class dependant on " + DataServices.MESSAGE;
+
 }
