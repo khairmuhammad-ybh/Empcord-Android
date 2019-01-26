@@ -1,34 +1,18 @@
 package com.khairmuhammad.empcord.fragments.worker;
 
-import android.app.Activity;
-import android.app.PendingIntent;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.SharedPreferences;
-import android.nfc.NdefMessage;
-import android.nfc.NdefRecord;
-import android.nfc.NfcAdapter;
-import android.nfc.Tag;
-import android.nfc.tech.Ndef;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.khairmuhammad.empcord.R;
-import com.khairmuhammad.empcord.WorkerTabbedActivity;
 import com.khairmuhammad.empcord.configurations.Tags;
-import com.khairmuhammad.transactions.Transactions;
-
-import java.io.UnsupportedEncodingException;
-import java.util.Arrays;
+import com.khairmuhammad.transactions.WorkerTransactions;
 
 
 /**
@@ -67,7 +51,7 @@ public class NFC extends Fragment implements NFCInterface {
          * to be use in here.
          */
 
-        String[] prefNFC = Transactions.getNFCPref(); // 0: prefName, 1: location, 2: status, 3: message
+        String[] prefNFC = WorkerTransactions.getNFCPref(); // 0: prefName, 1: location, 2: status, 3: message
 
         SharedPreferences pref = getContext().getSharedPreferences(prefNFC[0], Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
@@ -89,7 +73,7 @@ public class NFC extends Fragment implements NFCInterface {
     public void setDisplay(String nfcResult) {
 //        nfc_tv_tag_message.setText(nfcResult);
 
-        String[] prefNFC = Transactions.getNFCPref(); // 0: prefName, 1: location, 2: status, 3: message
+        String[] prefNFC = WorkerTransactions.getNFCPref(); // 0: prefName, 1: location, 2: status, 3: message
 
         SharedPreferences pref = getContext().getSharedPreferences(prefNFC[0], Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
@@ -107,7 +91,7 @@ public class NFC extends Fragment implements NFCInterface {
 
     @Override
     public void setStatus() {
-        String[] prefNFC = Transactions.getNFCPref(); // 0: prefName, 1: location, 2: status, 3: message
+        String[] prefNFC = WorkerTransactions.getNFCPref(); // 0: prefName, 1: location, 2: status, 3: message
 
         SharedPreferences pref = getContext().getSharedPreferences(prefNFC[0], Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();

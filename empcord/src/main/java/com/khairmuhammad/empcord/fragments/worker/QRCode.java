@@ -14,7 +14,6 @@ import android.widget.Toast;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 import com.khairmuhammad.empcord.R;
-import com.khairmuhammad.transactions.Transactions;
 
 import org.json.JSONException;
 import org.json.JSONObject;

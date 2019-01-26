@@ -16,8 +16,8 @@ import java.util.ArrayList;
  * Module contribution: Muhammad Khairi
  */
 
-public class Transactions {
-    public static String MESSAGE = "Transactions Class dependant on " + DataServices.MESSAGE;
+public class WorkerTransactions {
+    public static String MESSAGE = "WorkerTransactions Class dependant on " + DataServices.MESSAGE;
 
     public void insertQrCode (){
         /**

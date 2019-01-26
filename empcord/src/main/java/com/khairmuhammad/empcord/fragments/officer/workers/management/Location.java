@@ -2,7 +2,10 @@ package com.khairmuhammad.empcord.fragments.officer.workers.management;
 
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,17 +14,19 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.MapView;
+
 import com.khairmuhammad.empcord.R;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Location extends Fragment implements AdapterView.OnItemClickListener, AdapterView.OnItemSelectedListener {
+public class Location extends Fragment implements AdapterView.OnItemClickListener, AdapterView.OnItemSelectedListener{
 
     //Global variables
     Spinner location_worker_spinner_name;
     TextView location_worker_tv_address;
     MapView google_map_view;
+
 
     public Location() {
         // Required empty public constructor
@@ -37,6 +42,7 @@ public class Location extends Fragment implements AdapterView.OnItemClickListene
         location_worker_spinner_name = rootView.findViewById(R.id.location_worker_spinner_name);
         location_worker_tv_address = rootView.findViewById(R.id.location_worker_tv_address);
         google_map_view = rootView.findViewById(R.id.google_map_view);
+
 
         //Listeners
         location_worker_spinner_name.setOnItemSelectedListener(this);

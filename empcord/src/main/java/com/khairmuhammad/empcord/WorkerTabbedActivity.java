@@ -1,6 +1,5 @@
 package com.khairmuhammad.empcord;
 
-import android.content.Context;
 import android.content.Intent;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
@@ -20,7 +19,7 @@ import com.khairmuhammad.empcord.fragments.worker.Agenda;
 import com.khairmuhammad.empcord.fragments.worker.NFC;
 import com.khairmuhammad.empcord.fragments.worker.NFCInterface;
 import com.khairmuhammad.empcord.fragments.worker.QRCode;
-import com.khairmuhammad.transactions.Transactions;
+import com.khairmuhammad.transactions.WorkerTransactions;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
@@ -92,10 +91,10 @@ public class WorkerTabbedActivity extends AppCompatActivity {
 
         if (!mNfcAdapter.isEnabled()) {
 //            Toast.makeText(this, "NFC is disabled.", Toast.LENGTH_LONG).show();
-            Transactions.statusNFC(getApplicationContext(), "Disable");
+            WorkerTransactions.statusNFC(getApplicationContext(), "Disable");
         } else {
 //            Toast.makeText(this, "NFC is enable.", Toast.LENGTH_LONG).show();
-            Transactions.statusNFC(getApplicationContext(), "Enable");
+            WorkerTransactions.statusNFC(getApplicationContext(), "Enable");
         }
 
         handleIntent(getIntent());
@@ -267,7 +266,7 @@ public class WorkerTabbedActivity extends AppCompatActivity {
                 /**
                  * Invoke methods in transition module to store sharedPreference to be use in NFC fragment
                  */
-                boolean nfcTransaction = Transactions.insertNfc(getApplicationContext(), result);
+                boolean nfcTransaction = WorkerTransactions.insertNfc(getApplicationContext(), result);
 
                 if(nfcTransaction){
                     TabLayout.Tab tab = tabLayout.getTabAt(1);
