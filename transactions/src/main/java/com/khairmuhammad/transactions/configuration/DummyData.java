@@ -87,6 +87,9 @@ public class DummyData {
 //    }
 
     public static String COMPANY_URL = FetchingServices.GET_COMPANIES_ROUTE;
+    public static String FOREMAN_WORKER_URL = FetchingServices.GET_ALL_FOREMAN;
+    public static String URL_UPDATE_FOREMAN = FetchingServices.URL_UPDATE_FOREMAN;
+    public static String URL_REMOVE_FOREMAN = FetchingServices.URL_REMOVE_FOREMAN;
 
     private static void parseJSON(String response){
 

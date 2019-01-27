@@ -14,6 +14,9 @@ import com.khairmuhammad.dataservices.connections.ConnectUrl;
 public class FetchingServices {
 
     public static String GET_COMPANIES_ROUTE = ConnectUrl.URL_GET_COMPANIES;
+    public static String GET_ALL_FOREMAN = ConnectUrl.URL_GET_FOREMAN;
+    public static String URL_UPDATE_FOREMAN = ConnectUrl.URL_UPDATE_FOREMAN;
+    public static String URL_REMOVE_FOREMAN = ConnectUrl.URL_REMOVE_FOREMAN;
 
 //    public interface VolleyCallback{
 //        void onSuccess(String response);

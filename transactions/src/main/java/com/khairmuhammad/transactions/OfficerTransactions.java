@@ -106,15 +106,15 @@ public class OfficerTransactions {
 //        return false;
 //    }
 
-    public static boolean removeUser(UserModel removedUser){
-
-        /**
-         * Invoke dataservices to remove user from database
-         * return true if success, else false
-         */
-
-        return true;
-    }
+//    public static boolean removeUser(UserModel removedUser){
+//
+//        /**
+//         * Invoke dataservices to remove user from database
+//         * return true if success, else false
+//         */
+//
+//        return true;
+//    }
 
     public static boolean unbindUser(UserModel unbindUser){
 
@@ -144,12 +144,12 @@ public class OfficerTransactions {
         return true;
     }
 
-    public static boolean updateWorkerEmail(UserModel userUpdate, String newEmail){
-        /**
-         * Invoke dataservices to update user account into database
-         * return true if success, else false
-         */
-
-        return true;
-    }
+//    public static boolean updateWorkerEmail(UserModel userUpdate, String newEmail){
+//        /**
+//         * Invoke dataservices to update user account into database
+//         * return true if success, else false
+//         */
+//
+//        return true;
+//    }
 }

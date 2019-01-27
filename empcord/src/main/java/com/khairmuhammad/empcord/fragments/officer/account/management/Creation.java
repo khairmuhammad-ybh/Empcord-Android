@@ -91,7 +91,7 @@ public class Creation extends Fragment implements View.OnClickListener, AdapterV
 
     private void createDummyData() {
         /**
-         * Get all user under this current officer from the database
+         * Get all companies from the database
          */
         StringRequest getRequest = new StringRequest(Request.Method.GET, DummyData.COMPANY_URL, new Response.Listener<String>() {
             @Override
