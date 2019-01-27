@@ -18,6 +18,50 @@
         android:adjustViewBounds="true"/>
 
     <!-- Worker's Agenda in table-format -->
+    <TableLayout
+        xmlns:android = "http://schemas.android.com/apk/res/android"
+        android:id="@+id/worker_agenda_tableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:stretchColumns="*"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        >
+        <TableRow
+            android:background="@android:color/black"
+            android:layout_width="match_parent"
+            >
+            <TextView
+                android:gravity="center"
+                android:text="Blk"
+                android:textSize="17dp"
+                android:textStyle="bold"
+                android:layout_margin="1dp"
+                android:background="@android:color/white"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:text="Street"
+                android:textSize="17dp"
+                android:textStyle="bold"
+                android:layout_margin="1dp"
+                android:background="@android:color/white"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:text="Completion"
+                android:textSize="17dp"
+                android:textStyle="bold"
+                android:layout_margin="1dp"
+                android:background="@android:color/white"
+                />
 
+
+        </TableRow>
+
+    </TableLayout>
 
 </LinearLayout>
