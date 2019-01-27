@@ -2,7 +2,7 @@
     <string name="app_name">EmpCord</string>
 
     <!-- login fragment -->
-    <string name="login_et_username">Username</string>
+    <string name="login_et_email">Email</string>
     <string name="login_et_password">Password</string>
     <string name="login_btn_login">Login</string>
     <string name="link_register">No Account? Register here</string>
@@ -11,7 +11,7 @@
     <string name="register_et_name">Name</string>
     <string name="register_et_email">Email</string>
     <string name="register_et_password">password</string>
-    <string name="register_et_confirm_password">Password</string>
+    <string name="register_et_confirm_password">Confirm Password</string>
     <string name="register_btn_register">Register</string>
     <string name="link_login">Already registered? Login here</string>
 
@@ -66,6 +66,7 @@
 
     <!-- Creation fragment -->
     <string name="register_worker_et_name">Worker\'s Name</string>
+    <string name="register_worker_lbl_name">Company</string>
     <string name="register_worker_et_email">Worker\'s Email</string>
     <string name="register_worker_et_password">Worker\'s Password</string>
     <string name="register_worker_et_confirm_password">Worker\'s Confirm Password</string>

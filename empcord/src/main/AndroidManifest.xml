@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.khairmuhammad.empcord">
 
-    <uses-permission android:name="android.permission.NFC" />
+    <uses-permission android:name="android.permission.NFC"/>
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
@@ -12,6 +12,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme.NoActionBar"
         android:hardwareAccelerated="true">
         <activity android:name=".MainActivity">
@@ -34,6 +35,7 @@
                 android:resource="@xml/nfc_tech_filter" />
         </activity>
         <activity android:name=".WorkerTabbedActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".WorkerTabbedNoNFCActivity" android:screenOrientation="portrait"/>
         <activity android:name=".OfficerTabbedActivity" android:screenOrientation="portrait"/>
         <activity android:name=".BlankCanvas"></activity>
         <activity

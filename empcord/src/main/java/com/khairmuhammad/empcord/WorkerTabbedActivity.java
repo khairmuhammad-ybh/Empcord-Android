@@ -1,6 +1,8 @@
 package com.khairmuhammad.empcord;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
@@ -59,6 +61,24 @@ public class WorkerTabbedActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_worker_tabbed_layout);
 
+        //Shared Preference
+        SharedPreferences sharedPreferences;
+
+        sharedPreferences = getSharedPreferences("Auth_User", Context.MODE_PRIVATE);
+
+        if(sharedPreferences.contains("_id")){
+            String type = sharedPreferences.getString("type", "");
+            if(type.equals("Officer")){
+                startActivity(new Intent(this, OfficerTabbedActivity.class));
+                finish();
+            }else{
+//                startActivity(new Intent(this, WorkerTabbedActivity.class));
+            }
+        }else{
+            startActivity(new Intent(this, MainActivity.class));
+            finish();
+        }
+
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -83,6 +103,7 @@ public class WorkerTabbedActivity extends AppCompatActivity {
 
         if (mNfcAdapter == null) {
             // Stop here, we definitely need NFC
+            startActivity(new Intent(this, WorkerTabbedNoNFCActivity.class));
             Toast.makeText(this, "This device doesn't support NFC.", Toast.LENGTH_LONG).show();
             finish();
             return;
