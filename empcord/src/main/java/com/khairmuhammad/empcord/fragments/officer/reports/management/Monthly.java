@@ -3,6 +3,7 @@ package com.khairmuhammad.empcord.fragments.officer.reports.management;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.Gravity;
@@ -17,10 +18,22 @@ import android.widget.TextView;
 
 import com.khairmuhammad.empcord.R;
 import com.khairmuhammad.empcord.configurations.Tags;
+import com.khairmuhammad.statistics.Statistics;
 
+import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Locale;
+
+import jxl.Workbook;
+import jxl.WorkbookSettings;
+import jxl.write.Label;
+import jxl.write.WritableSheet;
+import jxl.write.WritableWorkbook;
+import jxl.write.WriteException;
+import jxl.write.biff.RowsExceededException;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -43,12 +56,11 @@ public class Monthly extends Fragment implements View.OnClickListener {
         String[] completionArray = {"Completed","Completed","Completed"};
         String[] dateArray = {"1/4/2019","2/4/2019","3/4/2019"};
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_monthly, container, false);
+        final View rootView = inflater.inflate(R.layout.fragment_monthly, container, false);
 
         report_monthly_spinner_name = rootView.findViewById(R.id.report_monthly_spinner_name);
         report_monthly_btn_report = rootView.findViewById(R.id.report_monthly_btn_report);
         report_monthly_table = rootView.findViewById(R.id.report_monthly_tableLayout);
-
         if(nameArray.length > 0){
         for(int i = 0; i < nameArray.length;i++){
             TableRow row = new TableRow(rootView.getContext());
@@ -97,7 +109,7 @@ public class Monthly extends Fragment implements View.OnClickListener {
         switch (v.getId()){
             case R.id.report_monthly_btn_report:
                 Log.d(Tags.TAG_TRANSITION, "(Monthly(officer) - fragment) Generate Report button has been pressed");
-
+                Statistics.generateExcel();
                 /**
                  * Invoke method in transition module to generate monthly report and display
                  * in table-format

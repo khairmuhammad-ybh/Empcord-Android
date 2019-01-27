@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.khairmuhammad.empcord.R;
 import com.khairmuhammad.empcord.configurations.Tags;
+import com.khairmuhammad.statistics.Statistics;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -100,7 +101,7 @@ public class Worker extends Fragment implements View.OnClickListener {
         switch (v.getId()){
             case R.id.report_worker_btn_report:
                 Log.d(Tags.TAG_TRANSITION, "(Worker(officer) - fragment) Generate Report button has been pressed");
-
+                Statistics.generateExcel();
                 /**
                  * Invoke method in transition module to generate worker's report and display
                  * in table-format
