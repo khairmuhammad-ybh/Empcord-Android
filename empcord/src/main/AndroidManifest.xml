@@ -35,6 +35,7 @@
                 android:resource="@xml/nfc_tech_filter" />
         </activity>
         <activity android:name=".WorkerTabbedActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".WorkerTabbedNoNFCActivity" android:screenOrientation="portrait"/>
         <activity android:name=".OfficerTabbedActivity" android:screenOrientation="portrait"/>
         <activity android:name=".BlankCanvas"></activity>
         <activity

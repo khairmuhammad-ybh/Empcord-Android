@@ -34,44 +34,48 @@ import java.util.Map;
 
 public class DataServices {
 
+    public interface VolleyCallback{
 
-    public static void registerUser(final Context context, final String name, final String email, final String hashPassword){
-
-        Log.d(ConnTags.TAG_VOLLEY, "in dataserves: registerUser");
-
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, ConnectUrl.URL_REGISTER,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        //Data successfully returned
-                        Log.d(ConnTags.TAG_VOLLEY, response);
-                        parseJSONObject(context, response);
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.d(ConnTags.TAG_VOLLEY, String.valueOf(error));
-                //nothing
-            }
-        }){
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<>();
-                //Adding parameters to request
-                params.put("name", name);
-                params.put("email", email);
-                params.put("password", hashPassword);
-
-                //returning params
-                return params;
-            }
-        };
-
-        //Adding string request to the queue
-        RequestQueue requestQueue = Volley.newRequestQueue(context);
-        requestQueue.add(stringRequest);
-
+        void onSuccess(JSONObject jsonObject);
     }
+
+//    public static void registerUser(final Context context, final String name, final String email, final String hashPassword){
+//
+//        Log.d(ConnTags.TAG_VOLLEY, "in dataserves: registerUser");
+//
+//        StringRequest stringRequest = new StringRequest(Request.Method.POST, ConnectUrl.URL_REGISTER,
+//                new Response.Listener<String>() {
+//                    @Override
+//                    public void onResponse(String response) {
+//                        //Data successfully returned
+//                        Log.d(ConnTags.TAG_VOLLEY, response);
+//                        parseJSONObject(context, response);
+//                    }
+//                }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                Log.d(ConnTags.TAG_VOLLEY, String.valueOf(error));
+//                //nothing
+//            }
+//        }){
+//            @Override
+//            protected Map<String, String> getParams() throws AuthFailureError {
+//                Map<String, String> params = new HashMap<>();
+//                //Adding parameters to request
+//                params.put("name", name);
+//                params.put("email", email);
+//                params.put("password", hashPassword);
+//
+//                //returning params
+//                return params;
+//            }
+//        };
+//
+//        //Adding string request to the queue
+//        RequestQueue requestQueue = Volley.newRequestQueue(context);
+//        requestQueue.add(stringRequest);
+//
+//    }
 
     private static boolean parseJSONObject(Context context, String response){
 
@@ -89,7 +93,7 @@ public class DataServices {
             //Shared Preference
             SharedPreferences sharedPreferences;
 
-            sharedPreferences = context.getSharedPreferences("Volley_SharedPref", Context.MODE_PRIVATE);
+            sharedPreferences = context.getSharedPreferences("Auth_User", Context.MODE_PRIVATE);
 
             SharedPreferences.Editor editor = sharedPreferences.edit();
 
@@ -129,17 +133,129 @@ public class DataServices {
         return false;
     }
 
-    public static void loggingUser(final Context context, final String email, final String hashPassword){
+//    private static boolean parseJSONObjectWorker(Context context, String response){
+//
+//        String message;
+//
+//        String _id;
+//        String name;
+//        String password;
+//        String type;
+//        String email;
+//        String companyId;
+//        String officerId;
+////        JSONArray worker;
+//
+//        try{
+//
+//            //Shared Preference
+//            SharedPreferences sharedPreferences;
+//
+//            sharedPreferences = context.getSharedPreferences("Auth_Worker", Context.MODE_PRIVATE);
+//
+//            SharedPreferences.Editor editor = sharedPreferences.edit();
+//
+//            JSONObject jsonObject = new JSONObject(response);
+//            message = jsonObject.getString("message");
+//            if(message.equalsIgnoreCase("success")){
+////                JSONObject user = jsonObject.getJSONObject("user");
+//                JSONArray users = jsonObject.getJSONArray("user");
+//                JSONObject user = users.getJSONObject(0);
+//                //shared preference
+//                _id = user.getString("_id");
+//                name = user.getString("name");
+//                password = user.getString("password");
+//                type = user.getString("type");
+//                email = user.getString("email");
+//                companyId = user.getString("companyId");
+//                officerId = user.getString("officerId");
+////                worker = user.getJSONArray("worker");
+//
+//
+//                editor.putString("_id", _id);
+//                editor.putString("name", name);
+//                editor.putString("password", password);
+//                editor.putString("type", type);
+//                editor.putString("email", email);
+//                editor.putString("companyId", companyId);
+//                editor.putString("officerId", officerId);
+//
+//                editor.putString("message", message);
+//                editor.apply();
+//
+//                return true;
+//            }else{
+//                editor.putString("message", message);
+//                editor.apply();
+//            }
+//
+//        }catch (JSONException e){
+//            Log.d(ConnTags.TAG_VOLLEY, e.getMessage());
+//        }
+//
+//        return false;
+//    }
 
-        Log.d(ConnTags.TAG_VOLLEY, "in dataserves: loggingUser");
+//    public static void loggingUser(final Context context, final String email, final String hashPassword){
+//
+//        Log.d(ConnTags.TAG_VOLLEY, "in dataserves: loggingUser");
+//
+//        StringRequest stringRequest = new StringRequest(Request.Method.POST, ConnectUrl.URL_LOGIN,
+//                new Response.Listener<String>() {
+//                    @Override
+//                    public void onResponse(String response) {
+//                        //Data successfully returned
+//                        Log.d(ConnTags.TAG_VOLLEY, response);
+//                        parseJSONObject(context, response);
+//                    }
+//                }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                Log.d(ConnTags.TAG_VOLLEY, String.valueOf(error));
+//                //nothing
+//            }
+//        }){
+//            @Override
+//            protected Map<String, String> getParams() throws AuthFailureError {
+//                Map<String, String> params = new HashMap<>();
+//                //Adding parameters to request
+//                params.put("email", email);
+//                params.put("password", hashPassword);
+//
+//                //returning params
+//                return params;
+//            }
+//        };
+//
+//        //Adding string request to the queue
+//        RequestQueue requestQueue = Volley.newRequestQueue(context);
+//        requestQueue.add(stringRequest);
+//
+//    }
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, ConnectUrl.URL_LOGIN,
+    public static void registerWorker(final Context context, final String compID, final String name, final String email, final String hashPassword, final VolleyCallback callback){
+
+        //Shared Preference
+        SharedPreferences sharedPreferences;
+
+        sharedPreferences = context.getSharedPreferences("Auth_User", Context.MODE_PRIVATE);
+
+        final String officerId = sharedPreferences.getString("_id", "");
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, ConnectUrl.URL_REGISTER_WORKER,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         //Data successfully returned
                         Log.d(ConnTags.TAG_VOLLEY, response);
-                        parseJSONObject(context, response);
+//                        parseJSONObjectWorker(context, response);
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            callback.onSuccess(jsonObject);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -152,8 +268,11 @@ public class DataServices {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
                 //Adding parameters to request
+                params.put("name", name);
                 params.put("email", email);
                 params.put("password", hashPassword);
+                params.put("companyId", compID);
+                params.put("officerId", officerId);
 
                 //returning params
                 return params;
